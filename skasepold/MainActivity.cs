@@ -26,7 +26,11 @@ namespace skasepold
                   intent.PutExtra("edittextvalue", text);
                   StartActivity(intent);
               };
-            toWebView.Click();
+            toWebView.Click+= delegate
+            {
+                var intent = new Intent(this, typeof(WebviewActivity));
+                StartActivity(intent);
+            };
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
